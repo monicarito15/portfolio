@@ -69,7 +69,7 @@ export const EXPERIENCE = [
 
 export const STATS = [
   { value: "3+", label: "Projects published", color: "#8b5cf6" },
-  { value: "13+", label: "Years of work experience", color: "#00d4ff" },
+  { value: "13+", label: "Years of professional experience", color: "#00d4ff" },
   { value: "3", label: "Languages spoken", color: "#f43f5e" },
   { value: "2026", label: "Bachelor degree", color: "#10b981" },
 ];
