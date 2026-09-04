@@ -14,10 +14,13 @@ export default function About() {
             <span style={{ fontStyle: "italic", fontWeight: 100 }}>meets technology</span>
           </h2>
           <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.8, color: "rgba(255,255,255,0.45)", marginBottom: "24px", fontWeight: 300 }}>
-            I'm a frontend and mobile developer based in Trondheim, Norway. After years working as a medical secretary, I made a deliberate career shift into IT — earning a bachelor's degree in frontend and mobile development from Høyskolen Kristiania.
+            I'm a full-stack and mobile developer based in Trondheim, Norway. After years working as a medical secretary, I made a deliberate career shift into IT — earning a bachelor's degree in frontend and mobile development from Høyskolen Kristiania.
+          </p>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.8, color: "rgba(255,255,255,0.45)", marginBottom: "24px", fontWeight: 300 }}>
+            My background in healthcare gives me a unique perspective: I understand what it means to work with systems that don't work well enough — and the real difference it makes when they do.
           </p>
           <p style={{ fontFamily: "var(--font-body)", fontSize: "16px", lineHeight: 1.8, color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>
-            My background in healthcare gives me a unique perspective: I understand what it means to work with systems that don't work well enough — and the real difference it makes when they do.
+            I'm especially drawn to <span style={{ color: "rgba(139,92,246,0.9)" }}>digitalisation</span> and <span style={{ color: "rgba(0,212,255,0.9)" }}>automation</span> — using tools like Microsoft Power Platform to eliminate repetitive work and build smarter processes.
           </p>
         </div>
 

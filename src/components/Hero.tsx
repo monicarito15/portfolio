@@ -21,10 +21,10 @@ export default function Hero() {
       </div>
 
       <div className="fade-up" style={{ animationDelay: "0.5s", display: "flex", alignItems: "center", gap: "16px", marginBottom: "48px" }}>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: "13px", color: "rgba(139,92,246,0.8)", letterSpacing: "0.1em" }}>FRONTEND</span>
-        <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "18px" }}>×</span>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: "13px", color: "rgba(139,92,246,0.8)", letterSpacing: "0.1em" }}>FULL-STACK</span>
+        <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "18px" }}>|</span>
         <span style={{ fontFamily: "var(--font-mono)", fontSize: "13px", color: "rgba(0,212,255,0.8)", letterSpacing: "0.1em" }}>MOBILE</span>
-        <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "18px" }}>×</span>
+        <span style={{ color: "rgba(255,255,255,0.15)", fontSize: "18px" }}>|</span>
         <span style={{ fontFamily: "var(--font-mono)", fontSize: "13px", color: "rgba(244,63,94,0.8)", letterSpacing: "0.1em" }}>DEVELOPER</span>
       </div>
 

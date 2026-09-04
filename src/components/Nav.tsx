@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import { NAV_LINKS } from "../data/portfolio";
 
-type Props = {
-  onAskAI: () => void;
-  chatOpen: boolean;
-};
-
-export default function Nav({ onAskAI, chatOpen }: Props) {
+export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -38,29 +33,6 @@ export default function Nav({ onAskAI, chatOpen }: Props) {
               {link}
             </button>
           ))}
-
-          {/* Ask AI button */}
-          <button onClick={onAskAI}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "7px",
-              padding: "7px 14px",
-              borderRadius: "100px",
-              background: chatOpen ? "rgba(16,185,129,0.15)" : "rgba(16,185,129,0.08)",
-              border: `1px solid ${chatOpen ? "rgba(16,185,129,0.5)" : "rgba(16,185,129,0.25)"}`,
-              color: chatOpen ? "#10b981" : "rgba(16,185,129,0.8)",
-              fontFamily: "var(--font-body)",
-              fontSize: "13px",
-              cursor: "pointer",
-              transition: "all 0.2s",
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(16,185,129,0.18)"; e.currentTarget.style.borderColor = "rgba(16,185,129,0.5)"; e.currentTarget.style.color = "#10b981"; }}
-            onMouseLeave={(e) => { if (!chatOpen) { e.currentTarget.style.background = "rgba(16,185,129,0.08)"; e.currentTarget.style.borderColor = "rgba(16,185,129,0.25)"; e.currentTarget.style.color = "rgba(16,185,129,0.8)"; } }}
-          >
-            <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }} className="pulse-dot" />
-            Ask AI
-          </button>
         </div>
       </div>
     </nav>

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './index.css'
 import AuroraBackground from './components/AuroraBackground'
 import Nav from './components/Nav'
@@ -10,18 +9,16 @@ import Chatbot from './components/Chatbot'
 import Contact from './components/Contact'
 
 export default function App() {
-  const [chatOpen, setChatOpen] = useState(false)
-
   return (
     <div style={{ minHeight: "100vh", background: "#06060e", color: "#eeeef8", fontFamily: "var(--font-body)", overflowX: "hidden" }}>
       <AuroraBackground />
-      <Nav onAskAI={() => setChatOpen((o) => !o)} chatOpen={chatOpen} />
+      <Nav />
       <Hero />
       <About />
       <Projects />
       <Skills />
       <Contact />
-      <Chatbot open={chatOpen} onClose={() => setChatOpen(false)} />
+      <Chatbot />
     </div>
   )
 }

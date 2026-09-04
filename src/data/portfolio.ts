@@ -49,19 +49,20 @@ export const SKILLS = [
   { name: "Swift / iOS", level: 78, color: "#f43f5e" },
   { name: "Kotlin / Android", level: 72, color: "#10b981" },
   { name: "Azure / CI/CD", level: 75, color: "#8b5cf6" },
-  { name: "UX / Figma", level: 80, color: "#00d4ff" },
-  { name: "Java / C#", level: 70, color: "#f43f5e" },
+  { name: "Microsoft Power Platform", level: 76, color: "#00d4ff" },
+  { name: "UX / Figma", level: 80, color: "#f43f5e" },
   { name: "SQL (MySQL / Postgres)", level: 74, color: "#10b981" },
 ];
 
 export const STACK = [
   "React", "TypeScript", "Swift", "Kotlin", "JavaScript",
   "HTML", "CSS", "Azure", "GitHub Actions", "Supabase",
-  "Figma", "Java", "C#", "MySQL", "Postgres", "Power Platform",
+  "Figma", "Java", "C#", "MySQL", "Postgres",
+  "Power Automate", "Power Apps", "Power Platform",
 ];
 
 export const EXPERIENCE = [
-  { role: "Frontend & Mobile Developer", company: "Freelance / Projects", period: "2024—present", color: "#8b5cf6" },
+  { role: "Full-Stack & Mobile Developer", company: "Freelance / Projects", period: "2024—present", color: "#8b5cf6" },
   { role: "Bachelor Project — Elivate Group", company: "Høyskolen Kristiania", period: "2026", color: "#00d4ff" },
   { role: "Medical Secretary", company: "Fokus Legesenter", period: "2010—2023", color: "#f43f5e" },
 ];
