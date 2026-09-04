@@ -13,7 +13,7 @@ export default function Contact() {
   return (
     <section id="contact" style={{ padding: "120px max(48px, calc((100vw - 1152px)/2)) 80px", position: "relative", zIndex: 1 }}>
       <p style={{ fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.2em", color: "rgba(16,185,129,0.7)", marginBottom: "20px" }}>
-        005 / CONTACT
+        004 / CONTACT
       </p>
 
       <div className="bento-card" style={{ padding: "clamp(48px, 8vw, 96px)", textAlign: "center", background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(139,92,246,0.12) 0%, transparent 70%), rgba(13,13,26,0.7)", position: "relative", overflow: "hidden" }}>

@@ -22,14 +22,18 @@ function TypingDots() {
   );
 }
 
-export default function Chatbot() {
+type Props = {
+  open: boolean;
+  onClose: () => void;
+};
+
+export default function Chatbot({ open, onClose }: Props) {
   const [messages, setMessages] = useState<Message[]>([
     { role: "assistant", content: "Hi! I'm Carolina's AI assistant. Ask me anything about her skills, projects, or background." },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -67,139 +71,142 @@ export default function Chatbot() {
   };
 
   return (
-    <section id="demo" style={{ padding: "120px max(48px, calc((100vw - 1152px)/2))", position: "relative", zIndex: 1 }}>
-      <div style={{ marginBottom: "64px" }}>
-        <p style={{ fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.2em", color: "rgba(16,185,129,0.7)", marginBottom: "20px" }}>
-          004 / AI DEMO
-        </p>
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 4vw, 56px)", fontWeight: 300, lineHeight: 1.1, letterSpacing: "-0.02em", color: "#eeeef8" }}>
-          Ask my
-          <br />
-          <span style={{ fontStyle: "italic", fontWeight: 100 }}>AI assistant</span>
-        </h2>
-      </div>
+    <>
+      {/* backdrop blur on mobile */}
+      {open && (
+        <div
+          onClick={onClose}
+          style={{ position: "fixed", inset: 0, zIndex: 98, background: "rgba(0,0,0,0.3)", backdropFilter: "blur(2px)" }}
+          className="md:hidden"
+        />
+      )}
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px", alignItems: "start" }}>
-        {/* Left: info */}
-        <div>
-          <p style={{ fontFamily: "var(--font-body)", fontSize: "15px", lineHeight: 1.8, color: "rgba(255,255,255,0.45)", fontWeight: 300, marginBottom: "40px" }}>
-            This chatbot is powered by the <span style={{ color: "rgba(16,185,129,0.9)" }}>Claude API</span>, secured via an{" "}
-            <span style={{ color: "rgba(139,92,246,0.9)" }}>Azure Functions</span> proxy so API keys never touch the browser.
-            Ask it anything about my experience, stack, or projects.
-          </p>
-
-          <div>
-            <p style={{ fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.15em", color: "rgba(255,255,255,0.2)", marginBottom: "16px" }}>
-              TRY ASKING
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              {SUGGESTIONS.map((s) => (
-                <button key={s} onClick={() => send(s)} disabled={loading}
-                  style={{ textAlign: "left", padding: "12px 18px", borderRadius: "12px", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)", fontFamily: "var(--font-body)", fontSize: "13px", cursor: loading ? "not-allowed" : "pointer", transition: "background 0.2s, border-color 0.2s, color 0.2s" }}
-                  onMouseEnter={(e) => { if (!loading) { const el = e.currentTarget; el.style.background = "rgba(16,185,129,0.08)"; el.style.borderColor = "rgba(16,185,129,0.25)"; el.style.color = "rgba(255,255,255,0.85)"; } }}
-                  onMouseLeave={(e) => { const el = e.currentTarget; el.style.background = "rgba(255,255,255,0.04)"; el.style.borderColor = "rgba(255,255,255,0.08)"; el.style.color = "rgba(255,255,255,0.5)"; }}
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div style={{ marginTop: "48px", display: "flex", gap: "10px", flexWrap: "wrap" }}>
-            {["Claude API", "Azure Functions", "React", "TypeScript"].map((t) => (
-              <span key={t} className="tag-chip">{t}</span>
-            ))}
-          </div>
-        </div>
-
-        {/* Right: chat window */}
-        <div className="bento-card" style={{ display: "flex", flexDirection: "column", height: "480px", overflow: "hidden" }}>
-          {/* header */}
-          <div style={{ padding: "20px 24px", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
+      {/* floating panel */}
+      <div style={{
+        position: "fixed",
+        top: "80px",
+        right: open ? "24px" : "-420px",
+        width: "min(390px, calc(100vw - 32px))",
+        height: "calc(100vh - 104px)",
+        zIndex: 99,
+        transition: "right 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+        display: "flex",
+        flexDirection: "column",
+        background: "rgba(10, 10, 20, 0.92)",
+        border: "1px solid rgba(255,255,255,0.1)",
+        borderRadius: "20px",
+        backdropFilter: "blur(24px)",
+        boxShadow: "0 32px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(16,185,129,0.1)",
+        overflow: "hidden",
+      }}>
+        {/* header */}
+        <div style={{ padding: "18px 20px", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between", flexShrink: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981" }} className="pulse-dot" />
-            <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "rgba(255,255,255,0.4)", letterSpacing: "0.08em" }}>
-              carolina-assistant · online
+            <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "rgba(255,255,255,0.5)", letterSpacing: "0.08em" }}>
+              carolina-assistant
             </span>
           </div>
+          <button onClick={onClose}
+            style={{ width: "28px", height: "28px", borderRadius: "50%", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.4)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", transition: "background 0.2s, color 0.2s" }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "rgba(255,255,255,0.9)"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.4)"; }}
+          >
+            ✕
+          </button>
+        </div>
 
-          {/* messages */}
-          <div style={{ flex: 1, overflowY: "auto", padding: "24px", display: "flex", flexDirection: "column", gap: "16px", scrollbarWidth: "none" }}>
-            {messages.map((msg, i) => (
-              <div key={i} style={{ display: "flex", justifyContent: msg.role === "user" ? "flex-end" : "flex-start" }}>
-                <div style={{
-                  maxWidth: "80%",
-                  padding: "12px 16px",
-                  borderRadius: msg.role === "user" ? "18px 18px 4px 18px" : "18px 18px 18px 4px",
-                  background: msg.role === "user"
-                    ? "linear-gradient(135deg, rgba(139,92,246,0.35), rgba(0,212,255,0.25))"
-                    : "rgba(255,255,255,0.05)",
-                  border: msg.role === "user" ? "1px solid rgba(139,92,246,0.3)" : "1px solid rgba(255,255,255,0.07)",
-                  fontFamily: "var(--font-body)",
-                  fontSize: "14px",
-                  lineHeight: 1.6,
-                  color: msg.role === "user" ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.7)",
-                  fontWeight: 300,
-                }}>
-                  {msg.content}
-                </div>
-              </div>
+        {/* suggestions (only when just the initial message) */}
+        {messages.length === 1 && (
+          <div style={{ padding: "14px 16px", borderBottom: "1px solid rgba(255,255,255,0.05)", display: "flex", flexWrap: "wrap", gap: "6px", flexShrink: 0 }}>
+            {SUGGESTIONS.map((s) => (
+              <button key={s} onClick={() => send(s)} disabled={loading}
+                style={{ padding: "6px 12px", borderRadius: "100px", background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.2)", color: "rgba(255,255,255,0.55)", fontFamily: "var(--font-body)", fontSize: "11px", cursor: "pointer", transition: "background 0.2s, color 0.2s" }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(16,185,129,0.18)"; e.currentTarget.style.color = "rgba(255,255,255,0.9)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(16,185,129,0.08)"; e.currentTarget.style.color = "rgba(255,255,255,0.55)"; }}
+              >
+                {s}
+              </button>
             ))}
-            {loading && (
-              <div style={{ display: "flex", justifyContent: "flex-start" }}>
-                <div style={{ padding: "12px 18px", borderRadius: "18px 18px 18px 4px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}>
-                  <TypingDots />
-                </div>
-              </div>
-            )}
-            <div ref={bottomRef} />
           </div>
+        )}
 
-          {/* input */}
-          <div style={{ padding: "16px 20px", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", gap: "10px", flexShrink: 0 }}>
-            <input
-              ref={inputRef}
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(input); } }}
-              placeholder="Ask something..."
-              disabled={loading}
-              style={{
-                flex: 1,
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: "12px",
-                padding: "10px 16px",
-                color: "rgba(255,255,255,0.85)",
+        {/* messages */}
+        <div style={{ flex: 1, overflowY: "auto", padding: "20px 16px", display: "flex", flexDirection: "column", gap: "14px", scrollbarWidth: "none" }}>
+          {messages.map((msg, i) => (
+            <div key={i} style={{ display: "flex", justifyContent: msg.role === "user" ? "flex-end" : "flex-start" }}>
+              <div style={{
+                maxWidth: "85%",
+                padding: "10px 14px",
+                borderRadius: msg.role === "user" ? "16px 16px 4px 16px" : "16px 16px 16px 4px",
+                background: msg.role === "user"
+                  ? "linear-gradient(135deg, rgba(139,92,246,0.4), rgba(0,212,255,0.3))"
+                  : "rgba(255,255,255,0.05)",
+                border: msg.role === "user" ? "1px solid rgba(139,92,246,0.3)" : "1px solid rgba(255,255,255,0.07)",
                 fontFamily: "var(--font-body)",
                 fontSize: "13px",
-                outline: "none",
-                transition: "border-color 0.2s",
-              }}
-              onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(16,185,129,0.4)"; }}
-              onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
-            />
-            <button onClick={() => send(input)} disabled={loading || !input.trim()}
-              style={{
-                width: "42px",
-                height: "42px",
-                borderRadius: "12px",
-                background: input.trim() && !loading ? "rgba(16,185,129,0.2)" : "rgba(255,255,255,0.04)",
-                border: `1px solid ${input.trim() && !loading ? "rgba(16,185,129,0.4)" : "rgba(255,255,255,0.08)"}`,
-                color: input.trim() && !loading ? "#10b981" : "rgba(255,255,255,0.2)",
-                cursor: input.trim() && !loading ? "pointer" : "not-allowed",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-                transition: "background 0.2s, border-color 0.2s, color 0.2s",
-                fontSize: "16px",
-              }}
-            >
-              ↑
-            </button>
-          </div>
+                lineHeight: 1.6,
+                color: msg.role === "user" ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.72)",
+                fontWeight: 300,
+              }}>
+                {msg.content}
+              </div>
+            </div>
+          ))}
+          {loading && (
+            <div style={{ display: "flex", justifyContent: "flex-start" }}>
+              <div style={{ padding: "10px 16px", borderRadius: "16px 16px 16px 4px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.07)" }}>
+                <TypingDots />
+              </div>
+            </div>
+          )}
+          <div ref={bottomRef} />
+        </div>
+
+        {/* input */}
+        <div style={{ padding: "14px 16px", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", gap: "8px", flexShrink: 0 }}>
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(input); } }}
+            placeholder="Ask something..."
+            disabled={loading}
+            style={{
+              flex: 1,
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: "12px",
+              padding: "10px 14px",
+              color: "rgba(255,255,255,0.85)",
+              fontFamily: "var(--font-body)",
+              fontSize: "13px",
+              outline: "none",
+              transition: "border-color 0.2s",
+            }}
+            onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(16,185,129,0.45)"; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; }}
+          />
+          <button onClick={() => send(input)} disabled={loading || !input.trim()}
+            style={{
+              width: "40px",
+              height: "40px",
+              borderRadius: "12px",
+              background: input.trim() && !loading ? "rgba(16,185,129,0.2)" : "rgba(255,255,255,0.04)",
+              border: `1px solid ${input.trim() && !loading ? "rgba(16,185,129,0.45)" : "rgba(255,255,255,0.08)"}`,
+              color: input.trim() && !loading ? "#10b981" : "rgba(255,255,255,0.2)",
+              cursor: input.trim() && !loading ? "pointer" : "not-allowed",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+              transition: "all 0.2s",
+              fontSize: "16px",
+            }}
+          >
+            ↑
+          </button>
         </div>
       </div>
-    </section>
+    </>
   );
 }
