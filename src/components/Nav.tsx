@@ -31,6 +31,8 @@ export default function Nav() {
               onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.45)")}
             >
               {link}
+
+              <></>
             </button>
           ))}
         </div>
