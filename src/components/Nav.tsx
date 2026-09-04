@@ -12,7 +12,7 @@ export default function Nav() {
 
   const scrollTo = (label: string) => {
     const map: Record<string, string> = {
-      About: "about", Projects: "projects", Skills: "skills", Contact: "contact",
+      About: "about", Projects: "projects", Skills: "skills", Demo: "demo", Contact: "contact",
     };
     document.getElementById(map[label])?.scrollIntoView({ behavior: "smooth" });
   };
