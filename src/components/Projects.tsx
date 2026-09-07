@@ -52,7 +52,7 @@ export default function Projects() {
         </h2>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gridTemplateRows: "auto auto", gap: "16px" }}>
+      <div className="grid-projects">
         <div style={{ gridColumn: "1 / 8", gridRow: "1" }}><ProjectCard project={PROJECTS[0]} /></div>
         <div style={{ gridColumn: "8 / 13", gridRow: "1" }}><ProjectCard project={PROJECTS[1]} /></div>
         <div style={{ gridColumn: "1 / 5", gridRow: "2" }}><ProjectCard project={PROJECTS[2]} /></div>

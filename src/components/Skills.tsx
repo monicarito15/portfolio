@@ -47,7 +47,7 @@ export default function Skills() {
         </h2>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px" }}>
+      <div className="grid-skills">
         <div>
           {SKILLS.map((skill, i) => (
             <SkillBar key={skill.name} skill={skill} index={i} />

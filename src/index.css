@@ -172,3 +172,47 @@ html, body, #root {
   background: rgba(16,185,129,0.7);
   animation: typing-bounce 1.2s ease infinite;
 }
+
+/* ── Responsive grids ── */
+.grid-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.grid-projects {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+.grid-skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+@media (max-width: 768px) {
+  .grid-about {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .grid-projects {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+  .grid-projects > div {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+  .grid-skills {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .nav-links {
+    gap: 16px !important;
+  }
+  .nav-links button, .nav-links a {
+    font-size: 11px !important;
+  }
+}

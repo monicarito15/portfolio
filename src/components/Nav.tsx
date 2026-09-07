@@ -20,10 +20,10 @@ export default function Nav() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "nav-glass" : ""}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: "13px", color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em" }}>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: "clamp(10px, 2.5vw, 13px)", color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", whiteSpace: "nowrap" }}>
           &lt;carolina-mera /&gt;
         </span>
-        <div className="flex items-center gap-8">
+        <div className="nav-links flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <button key={link} onClick={() => scrollTo(link)}
               style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "rgba(255,255,255,0.45)", letterSpacing: "0.04em", background: "none", border: "none", cursor: "pointer", transition: "color 0.2s" }}

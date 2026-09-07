@@ -3,7 +3,7 @@ import { STATS } from "../data/portfolio";
 export default function About() {
   return (
     <section id="about" style={{ padding: "120px max(48px, calc((100vw - 1152px)/2))", position: "relative", zIndex: 1 }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center" }}>
+      <div className="grid-about">
         <div>
           <p style={{ fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.2em", color: "rgba(139,92,246,0.7)", marginBottom: "20px" }}>
             001 / ABOUT ME
