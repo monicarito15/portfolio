@@ -215,4 +215,10 @@ html, body, #root {
   .nav-links button, .nav-links a {
     font-size: 11px !important;
   }
+  .scroll-indicator {
+    display: none !important;
+  }
+  .hero-section {
+    padding-top: 80px !important;
+  }
 }

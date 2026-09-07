@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", padding: "0 max(48px, calc((100vw - 1152px)/2))", position: "relative", zIndex: 1 }}>
+    <section className="hero-section" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", padding: "0 max(48px, calc((100vw - 1152px)/2))", position: "relative", zIndex: 1 }}>
       <div className="fade-up" style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "40px", animationDelay: "0.1s" }}>
         <span className="pulse-dot" style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", display: "inline-block" }} />
         <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em" }}>
@@ -51,7 +51,7 @@ export default function Hero() {
         </button>
       </div>
 
-      <div style={{ position: "absolute", bottom: "40px", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", opacity: 0.3, animation: "float 3s ease-in-out infinite" }}>
+      <div className="scroll-indicator" style={{ position: "absolute", bottom: "40px", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", opacity: 0.3, animation: "float 3s ease-in-out infinite" }}>
         <div style={{ width: "24px", height: "40px", border: "1px solid rgba(255,255,255,0.3)", borderRadius: "100px", display: "flex", justifyContent: "center", paddingTop: "6px" }}>
           <div style={{ width: "3px", height: "8px", background: "rgba(255,255,255,0.6)", borderRadius: "100px", animation: "float 1.5s ease-in-out infinite" }} />
         </div>
