@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { PROJECTS } from "../data/portfolio";
-
-type Project = (typeof PROJECTS)[0];
+import { PROJECTS, type Project } from "../data/portfolio";
 
 function ProjectCard({ project }: { project: Project }) {
   const [hovered, setHovered] = useState(false);

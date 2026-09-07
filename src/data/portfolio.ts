@@ -1,6 +1,18 @@
 export const NAV_LINKS = ["About", "Projects", "Skills", "Contact"];
 
-export const PROJECTS = [
+export type Project = {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  accent: string;
+  year: string;
+  url?: string;
+  urlLabel?: string;
+};
+
+export const PROJECTS: Project[] = [
   {
     id: 1,
     title: "BomKalkulator",
