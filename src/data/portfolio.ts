@@ -64,7 +64,7 @@ export const STACK = [
 export const EXPERIENCE = [
   { role: "Full-Stack & Mobile Developer", company: "Freelance / Projects", period: "2024—present", color: "#8b5cf6" },
   { role: "Bachelor Project — Elivate Group", company: "Høyskolen Kristiania", period: "2026", color: "#00d4ff" },
-  { role: "Medical Secretary", company: "Fokus Legesenter", period: "2010—2023", color: "#f43f5e" },
+  { role: "Medical Secretary", company: "Fokus Legesenter", period: "2020—2023", color: "#f43f5e" },
 ];
 
 export const STATS = [
