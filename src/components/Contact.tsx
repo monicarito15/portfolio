@@ -1,14 +1,5 @@
-import { useState } from "react";
-
 export default function Contact() {
-  const [copied, setCopied] = useState(false);
   const email = "carolinamera@carolina-mera.com";
-
-  const copyEmail = () => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   return (
     <section id="contact" style={{ padding: "120px max(48px, calc((100vw - 1152px)/2)) 80px", position: "relative", zIndex: 1 }}>
