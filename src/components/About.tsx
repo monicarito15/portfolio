@@ -27,7 +27,7 @@ export default function About() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
           {STATS.map((stat) => (
             <div key={stat.label} className="bento-card glow-card" style={{ padding: "32px 28px" }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "48px", fontWeight: 700, lineHeight: 1, color: stat.color, marginBottom: "8px" }}>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 6vw, 48px)", fontWeight: 700, lineHeight: 1, color: stat.color, marginBottom: "8px" }}>
                 {stat.value}
               </div>
               <div style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "rgba(255,255,255,0.35)", lineHeight: 1.4 }}>
