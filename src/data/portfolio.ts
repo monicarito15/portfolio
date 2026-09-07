@@ -10,6 +10,8 @@ export const PROJECTS = [
     tags: ["Swift", "MapKit", "NVDB API", "App Store"],
     accent: "#00d4ff",
     year: "2025",
+    url: "https://apps.apple.com/no/app/bomkalkulator/id6763222702",
+    urlLabel: "View on App Store · iOS only",
   },
   {
     id: 2,

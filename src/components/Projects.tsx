@@ -29,10 +29,21 @@ function ProjectCard({ project }: { project: Project }) {
           {project.description}
         </p>
       </div>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "24px" }}>
-        {project.tags.map((tag) => (
-          <span key={tag} className="tag-chip">{tag}</span>
-        ))}
+      <div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "24px" }}>
+          {project.tags.map((tag) => (
+            <span key={tag} className="tag-chip">{tag}</span>
+          ))}
+        </div>
+        {project.url && (
+          <a href={project.url} target="_blank" rel="noreferrer"
+            style={{ display: "inline-flex", alignItems: "center", gap: "6px", marginTop: "20px", fontFamily: "var(--font-mono)", fontSize: "11px", color: project.accent, opacity: 0.8, textDecoration: "none", letterSpacing: "0.06em", transition: "opacity 0.2s" }}
+            onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.8"; }}
+          >
+            ↗ {project.urlLabel}
+          </a>
+        )}
       </div>
     </div>
   );
