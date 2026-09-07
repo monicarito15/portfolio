@@ -30,13 +30,13 @@ export default function Contact() {
         </p>
 
         <div style={{ display: "flex", justifyContent: "center", gap: "12px", flexWrap: "wrap", position: "relative" }}>
-          <button onClick={copyEmail}
-            style={{ display: "flex", alignItems: "center", gap: "10px", padding: "16px 28px", borderRadius: "100px", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.8)", fontFamily: "var(--font-mono)", fontSize: "13px", cursor: "pointer", letterSpacing: "0.04em", transition: "background 0.2s, border-color 0.2s" }}
+          <a href={`mailto:${email}`}
+            style={{ display: "flex", alignItems: "center", gap: "10px", padding: "16px 28px", borderRadius: "100px", background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.8)", fontFamily: "var(--font-mono)", fontSize: "13px", cursor: "pointer", letterSpacing: "0.04em", transition: "background 0.2s, border-color 0.2s", textDecoration: "none" }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.2)"; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.1)"; }}
           >
-            {copied ? "✓ Copied!" : email}
-          </button>
+            {email}
+          </a>
 
           {[
             { label: "GitHub", url: "https://github.com/monicarito15" },
