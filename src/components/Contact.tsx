@@ -1,5 +1,5 @@
 export default function Contact() {
-  const email = "carolinamera@carolina-mera.com";
+  const email = "carolinamera@carolinamera.com";
 
   return (
     <section id="contact" style={{ padding: "120px max(48px, calc((100vw - 1152px)/2)) 80px", position: "relative", zIndex: 1 }}>
@@ -31,7 +31,7 @@ export default function Contact() {
 
           {[
             { label: "GitHub", url: "https://github.com/monicarito15" },
-            { label: "LinkedIn", url: "https://linkedin.com/in/carolina-mera-b43219243" },
+            { label: "LinkedIn", url: "https://www.linkedin.com/in/carolina-cabrera-mera" },
           ].map((link) => (
             <a key={link.label} href={link.url} target="_blank" rel="noreferrer"
               style={{ padding: "16px 24px", borderRadius: "100px", background: "transparent", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)", fontFamily: "var(--font-body)", fontSize: "13px", fontWeight: 400, textDecoration: "none", letterSpacing: "0.04em", transition: "color 0.2s, border-color 0.2s" }}

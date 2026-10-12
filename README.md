@@ -1,8 +1,8 @@
-# carolina-mera.com — Portfolio
+# carolinamera.com — Portfolio
 
 Personal portfolio website for Carolina Mera, full-stack and mobile developer based in Trondheim, Norway.
 
-Live at: [www.carolina-mera.com](https://www.carolina-mera.com)
+Live at: [www.carolinamera.com](https://www.carolinamera.com)
 
 ## Tech Stack
 

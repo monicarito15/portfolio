@@ -21,7 +21,7 @@ export default function Nav() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "nav-glass" : ""}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <span style={{ fontFamily: "var(--font-mono)", fontSize: "clamp(10px, 2.5vw, 13px)", color: "rgba(255,255,255,0.5)", letterSpacing: "0.12em", whiteSpace: "nowrap" }}>
-          &lt;carolina-mera /&gt;
+          &lt;carolinamera /&gt;
         </span>
         <div className="nav-links flex items-center gap-8">
           {NAV_LINKS.map((link) => (
